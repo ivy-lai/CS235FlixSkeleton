@@ -1,8 +1,8 @@
 import csv
 
-from domainmodel.movie import Movie
+from domainmodel.full_model import Movie
 from domainmodel.genre import Genre
-from domainmodel.actor import Actor
+from cs235flix.domainmodel.actor import Actor
 from domainmodel.director import Director
 
 
@@ -154,18 +154,3 @@ class MovieFileCSVReader:
     def dataset_of_genres(self, genres):
         if type(genres) == Genre:
             self.__dataset_of_genres = genres
-
-
-filename = 'datafiles/Data1000Movies.csv'
-movie_file_reader = MovieFileCSVReader(filename)
-movie_file_reader.read_csv_file()
-
-print(f'number of unique movies: {len(movie_file_reader.dataset_of_movies)}')
-print(f'number of unique actors: {len(movie_file_reader.dataset_of_actors)}')
-print(f'number of unique directors: {len(movie_file_reader.dataset_of_directors)}')
-print(f'number of unique genres: {len(movie_file_reader.dataset_of_genres)}')
-
-movie_file_reader.genre_input()
-print(movie_file_reader.genre_request)
-movie_file_reader.actor_input()
-print(movie_file_reader.actor_request)

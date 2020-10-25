@@ -1,4 +1,4 @@
-from domainmodel.movie import Movie
+from cs235flix.domainmodel.full_model import Movie
 import random
 
 
@@ -42,10 +42,3 @@ class WatchList:
     def choose_random(self):
         n = random.randint(0, len(self.__watchList))
         return self.__watchList[n-1]
-
-
-watchlist = WatchList()
-watchlist.add_movie(Movie("Moana", 2016))
-watchlist.add_movie(Movie("Ice Age", 2002))
-watchlist.add_movie(Movie("Guardians of the Galaxy", 2012))
-print(watchlist.choose_random())

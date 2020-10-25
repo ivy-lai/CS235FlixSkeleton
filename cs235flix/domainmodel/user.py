@@ -1,13 +1,13 @@
-from domainmodel.movie import Movie
-from domainmodel.review import Review
+from cs235flix.domainmodel.full_model import Movie
+from cs235flix.domainmodel.full_model import Review
 
 
 class User:
-    def __init__(self, user_name, password):
-        if type(user_name) == str:
-            self.__user_name = user_name.strip().lower()
+    def __init__(self, username, password):
+        if type(username) == str:
+            self.__username = username.strip().lower()
         else:
-            self.user_name = None
+            self.__username = None
 
         if type(password) == str:
             self.__password = password
@@ -19,19 +19,19 @@ class User:
         self.__time_spent_watching_movies_minutes = 0
 
     def __repr__(self):
-        return f"<User {self.__user_name}>"
+        return f"<User {self.__username}>"
 
     def __eq__(self, other):
         if isinstance(other, type(self)):
-            return self.__user_name == other.__user_name
+            return self.__username == other.__username
         else:
             return False
 
     def __lt__(self, other):
-        return self.__user_name < other.__user_name
+        return self.__username < other.__user_name
 
     def __hash__(self):
-        return hash((self.__user_name, self.__password))
+        return hash((self.__username, self.__password))
 
     def watch_movie(self, movie):
         self.__watched_movies.append(movie)
@@ -41,8 +41,8 @@ class User:
         self.__reviews.append(review)
 
     @property
-    def user_name(self):
-        return self.__user_name
+    def username(self):
+        return self.__username
 
     @property
     def password(self):
